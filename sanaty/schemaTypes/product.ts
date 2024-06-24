@@ -36,12 +36,6 @@ export default {
     },
 
     {
-      name: 'price_id',
-      title: 'Stripe Product ID',
-      type: 'string',
-    },
-
-    {
       name: 'category',
       title: 'Product Category',
       type: 'reference',

@@ -8,6 +8,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { useShoppingCart } from "use-shopping-cart";
 
 function ShoppingCartModal() {
@@ -18,8 +19,44 @@ function ShoppingCartModal() {
     cartDetails,
     removeItem,
     totalPrice,
-    redirectToCheckout,
   } = useShoppingCart();
+
+  // const [updatedCart, setUpdatedCart] = useState<any>({});
+
+  // useEffect(() => {
+  //   if (!!cartDetails) {
+  //     const entries = Object.values(cartDetails ?? {});
+
+  //     entries.map((entry) => {
+  //       const id = entry.id;
+  //       const exists = !!updatedCart[id];
+
+  //       if (!exists) {
+  //         const updatedValues = {
+  //           ...updatedCart,
+  //           [id]: entry,
+  //         };
+  //         setUpdatedCart(updatedValues);
+  //       } else {
+  //         let updatedValues = {
+  //           ...updatedCart,
+  //         };
+  //         const toUpdate = updatedValues.find(
+  //           (uv: any) => uv.name === entry.name
+  //         );
+  //         updatedValues = {
+  //           ...updatedValues,
+  //           [toUpdate.id]: {
+  //             ...toUpdate,
+  //             quantity: toUpdate.quantity + 1,
+  //           },
+  //         };
+  //         setUpdatedCart(updatedValues);
+  //         console.log("uv: ", updatedValues);
+  //       }
+  //     });
+  //   }
+  // }, [cartDetails]);
 
   return (
     <Sheet open={shouldDisplayCart} onOpenChange={() => handleCartClick()}>
@@ -58,7 +95,9 @@ function ShoppingCartModal() {
                         </div>
 
                         <div className="flex flex-1 items-end justify-between text-sm">
-                          <p className="text-gray-700">Qty: {entry.quantity}</p>
+                          <p className="text-gray-700">
+                            Quantity: {entry.quantity}
+                          </p>
 
                           <div className="flex">
                             <button
