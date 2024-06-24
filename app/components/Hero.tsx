@@ -42,7 +42,7 @@ async function Hero() {
               width={500}
               src={urlFor(data.image2).url()}
               alt="Image 2"
-              className="h-full w-full object-cover object-center scale-x-[-1]"
+              className="h-full w-full object-cover object-center"
             />
           </div>
         </div>
